@@ -15,8 +15,7 @@
 
         body {
             font-family: 'Quicksand', 'Segoe UI', 'Poppins', sans-serif;
-            /* Background dominan pink gradasi */
-            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 30%, #F48FB1 60%, #F06292 100%);
+            background: linear-gradient(135deg, #4A2A1A 0%, #8B5E3C 30%, #D4A373 60%, #F8BBD0 85%, #FCE4EC 100%);
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -25,7 +24,7 @@
             position: relative;
         }
 
-        /* Gambar Background - Cookies Pattern (lebih halus) */
+        /* Pattern cookies */
         body::before {
             content: "";
             position: fixed;
@@ -35,12 +34,12 @@
             height: 100%;
             background-image: url('https://www.transparenttextures.com/patterns/cookies.png');
             background-repeat: repeat;
-            opacity: 0.08;
+            opacity: 0.12;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Gambar Background - Bunga Pink */
+        /* Bunga pattern */
         .flower-pattern {
             position: fixed;
             top: 0;
@@ -52,10 +51,9 @@
             background-image: url('https://cdn.pixabay.com/photo/2017/01/13/04/56/rose-1976484_640.png');
             background-repeat: repeat;
             background-size: 60px;
-            opacity: 0.08;
+            opacity: 0.06;
         }
 
-        /* Efek Bling Bling lebih terang */
         .sparkle-effect {
             position: fixed;
             top: 0;
@@ -64,18 +62,16 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(255,215,0,0.12) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+            background: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(255,215,0,0.08) 0%, transparent 50%);
             animation: shimmer 4s infinite;
         }
 
         @keyframes shimmer {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
         }
 
-        /* Bintang berkilau lebih banyak */
         .stars {
             position: fixed;
             top: 0;
@@ -90,19 +86,18 @@
         .stars span {
             position: absolute;
             color: #FFD700;
-            font-size: 22px;
+            font-size: 20px;
             animation: floatStar 8s infinite linear;
-            opacity: 0.7;
+            opacity: 0.6;
         }
         
         @keyframes floatStar {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
             100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Boneka Beruang - tetap ada */
         .bear-deco {
             position: fixed;
             bottom: 20px;
@@ -110,7 +105,7 @@
             font-size: 75px;
             animation: bounce 2s infinite;
             z-index: 100;
-            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
+            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.2));
         }
 
         .bear-deco-left {
@@ -120,7 +115,7 @@
             font-size: 60px;
             animation: wave 3s infinite;
             z-index: 100;
-            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
+            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.2));
         }
 
         @keyframes bounce {
@@ -140,15 +135,13 @@
             z-index: 1;
         }
 
-        /* Card dengan background cream transparan */
         .card {
             background: rgba(255, 248, 231, 0.96);
             border-radius: 50px;
             padding: 45px 35px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2), 0 0 30px rgba(255,105,180,0.3);
-            border: 2px solid #FFF;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 20px rgba(255,215,0,0.2);
+            border: 2px solid #F8BBD0;
             text-align: center;
-            backdrop-filter: blur(2px);
         }
 
         .bear-large {
@@ -159,55 +152,47 @@
         }
 
         h1 {
-            color: #C2185B;
+            color: #5C3D2E;
             margin-bottom: 20px;
             font-size: 1.8em;
-            text-shadow: 2px 2px 4px rgba(255,215,0,0.2);
-            background: linear-gradient(135deg, #C2185B, #E91E63);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            text-shadow: 1px 1px 2px rgba(255,215,0,0.3);
         }
 
-        /* Result box dominan pink */
         .result-box {
-            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 50%, #F48FB1 100%);
+            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 50%, #FFF3E0 100%);
             padding: 25px;
             border-radius: 40px;
             margin: 25px 0;
-            border: 2px solid #FFF;
-            box-shadow: inset 0 0 15px rgba(255,255,255,0.5), 0 0 20px rgba(255,105,180,0.2);
+            border: 2px solid #F8BBD0;
+            box-shadow: inset 0 0 10px rgba(255,215,0,0.1), 0 0 15px rgba(255,215,0,0.15);
         }
 
         .result-label {
-            color: #AD1457;
+            color: #5D4037;
             font-size: 0.95em;
             margin-bottom: 8px;
             font-weight: 600;
-            text-shadow: 0 0 2px rgba(255,255,255,0.5);
         }
 
         .result-text {
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             padding: 15px 20px;
             border-radius: 35px;
             font-size: 1.2em;
             font-weight: 600;
-            color: #AD1457;
+            color: #5D4037;
             word-break: break-all;
             border: 1px solid #F8BBD0;
             margin: 10px 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .result-text.encrypted {
             background: #FFF0F5;
-            color: #D81B60;
+            color: #C2185B;
         }
 
-        /* Button dengan gradasi pink */
         .btn-primary {
-            background: linear-gradient(135deg, #E91E63 0%, #F06292 50%, #F8BBD0 100%);
+            background: linear-gradient(135deg, #5D4037 0%, #A1887F 50%, #F8BBD0 100%);
             color: white;
             border: none;
             padding: 14px 35px;
@@ -219,24 +204,24 @@
             font-family: 'Quicksand', sans-serif;
             font-size: 16px;
             margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.5), 0 0 20px rgba(255,215,0,0.3);
-            background: linear-gradient(135deg, #D81B60 0%, #E91E63 50%, #F48FB1 100%);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #6D4C41 0%, #8D6E63 50%, #FCE4EC 100%);
         }
 
         .celebrate {
-            font-size: 38px;
+            font-size: 35px;
             margin: 15px 0;
             animation: sparkle 1.5s infinite;
         }
 
         @keyframes sparkle {
             0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); text-shadow: 0 0 10px #FFD700; }
+            50% { opacity: 1; transform: scale(1.05); }
         }
 
         @media (max-width: 600px) {
@@ -256,16 +241,16 @@
     <div class="flower-pattern"></div>
     <div class="sparkle-effect"></div>
     <div class="stars">
-        <span style="left: 5%; animation-duration: 6s;">✨</span>
-        <span style="left: 15%; animation-duration: 7s;">💖</span>
+        <span style="left: 10%; animation-duration: 6s;">✨</span>
         <span style="left: 25%; animation-duration: 8s;">⭐</span>
-        <span style="left: 35%; animation-duration: 6.5s;">✨</span>
-        <span style="left: 45%; animation-duration: 9s;">💎</span>
-        <span style="left: 55%; animation-duration: 5.5s;">💖</span>
-        <span style="left: 65%; animation-duration: 7.5s;">✨</span>
-        <span style="left: 75%; animation-duration: 8.5s;">⭐</span>
-        <span style="left: 85%; animation-duration: 6s;">💎</span>
-        <span style="left: 95%; animation-duration: 7s;">💖</span>
+        <span style="left: 40%; animation-duration: 7s;">💎</span>
+        <span style="left: 55%; animation-duration: 9s;">✨</span>
+        <span style="left: 70%; animation-duration: 5s;">⭐</span>
+        <span style="left: 85%; animation-duration: 10s;">💎</span>
+        <span style="left: 15%; animation-duration: 7.5s;">✨</span>
+        <span style="left: 50%; animation-duration: 6.5s;">⭐</span>
+        <span style="left: 75%; animation-duration: 8.5s;">💎</span>
+        <span style="left: 95%; animation-duration: 7s;">✨</span>
     </div>
     
     <div class="bear-deco">🐻‍❄️</div>

@@ -15,36 +15,16 @@
 
         body {
             font-family: 'Quicksand', 'Segoe UI', 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #5C3D2E 0%, #D4A373 50%, #FCE4EC 100%);
+            /* Gradasi Coklat ke Pink */
+            background: linear-gradient(135deg, #4A2A1A 0%, #8B5E3C 30%, #D4A373 60%, #F8BBD0 85%, #FCE4EC 100%);
             min-height: 100vh;
             padding: 20px;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Efek Bling Bling - Bintang berkilau */
+        /* Gambar Background - Cookies Pattern */
         body::before {
-            content: "✨💎✨💎✨💎✨💎✨💎✨💎✨";
-            position: fixed;
-            top: 0;
-            left: 0;
-            font-size: 40px;
-            opacity: 0.25;
-            white-space: nowrap;
-            pointer-events: none;
-            width: 100%;
-            text-align: center;
-            animation: sparkle 3s infinite linear;
-            z-index: 0;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.15; transform: scale(1); }
-            50% { opacity: 0.35; transform: scale(1.05); }
-        }
-
-        /* Background gambar coklat/cookies */
-        body::after {
             content: "";
             position: fixed;
             top: 0;
@@ -52,13 +32,14 @@
             width: 100%;
             height: 100%;
             background-image: url('https://www.transparenttextures.com/patterns/cookies.png');
-            opacity: 0.12;
+            background-repeat: repeat;
+            opacity: 0.15;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Bintang berkilauan di background */
-        .sparkle-bg {
+        /* Gambar Background - Bunga dan Bintang */
+        .flower-pattern {
             position: fixed;
             top: 0;
             left: 0;
@@ -66,13 +47,56 @@
             height: 100%;
             pointer-events: none;
             z-index: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.1) 0%, transparent 50%);
+            background-image: url('https://cdn.pixabay.com/photo/2017/01/13/04/56/rose-1976484_640.png');
+            background-repeat: repeat;
+            background-size: 60px;
+            opacity: 0.06;
+        }
+
+        /* Efek Bling Bling - Bintang berkilau */
+        .sparkle-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(255,215,0,0.08) 0%, transparent 50%);
             animation: shimmer 4s infinite;
         }
 
         @keyframes shimmer {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.7; }
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Bintang berkilau berjalan */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .stars span {
+            position: absolute;
+            color: #FFD700;
+            font-size: 20px;
+            animation: floatStar 8s infinite linear;
+            opacity: 0.6;
+        }
+        
+        @keyframes floatStar {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
         }
 
         /* Boneka Beruang pojok kanan */
@@ -80,7 +104,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            font-size: 80px;
+            font-size: 85px;
             animation: bounce 2s infinite;
             cursor: pointer;
             filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
@@ -96,7 +120,7 @@
             position: fixed;
             bottom: 20px;
             left: 20px;
-            font-size: 65px;
+            font-size: 70px;
             animation: wave 3s infinite;
             filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
             z-index: 100;
@@ -134,43 +158,51 @@
         }
 
         h1 {
-            color: #FCE4EC;
+            color: #FFF8EF;
             font-size: 2.2em;
             font-weight: 700;
             letter-spacing: 2px;
             display: inline-block;
-            background: rgba(92, 61, 46, 0.85);
+            background: rgba(74, 42, 26, 0.75);
             padding: 12px 35px;
             border-radius: 60px;
             backdrop-filter: blur(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2), 0 0 15px rgba(255,215,0,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .subtitle {
             text-align: center;
-            color: #FCE4EC;
+            color: #FFF8EF;
             margin-top: 12px;
             font-size: 1em;
             font-weight: 500;
             font-style: italic;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            background: rgba(74, 42, 26, 0.4);
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(3px);
         }
 
         /* Card utama */
         .card {
-            background: rgba(255, 248, 231, 0.96);
-            border-radius: 40px;
+            background: rgba(255, 248, 231, 0.95);
+            border-radius: 45px;
             padding: 40px;
             margin-top: 20px;
-            box-shadow: 0 20px 40px rgba(92, 61, 46, 0.25), 0 0 20px rgba(255,215,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 20px rgba(255,215,0,0.2);
             border: 2px solid #F8BBD0;
             transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(92, 61, 46, 0.3), 0 0 30px rgba(255,215,0,0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25), 0 0 30px rgba(255,215,0,0.3);
         }
 
         .card h2 {
@@ -201,7 +233,7 @@
             width: 100%;
             padding: 14px 20px;
             border: 2px solid #F8BBD0;
-            border-radius: 30px;
+            border-radius: 35px;
             font-size: 16px;
             transition: all 0.3s;
             background: white;
@@ -224,7 +256,7 @@
             color: white;
             border: none;
             padding: 14px 35px;
-            border-radius: 40px;
+            border-radius: 45px;
             font-size: 18px;
             cursor: pointer;
             transition: all 0.3s;
@@ -232,28 +264,27 @@
             font-family: 'Quicksand', sans-serif;
             width: 100%;
             margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(92, 61, 46, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(92, 61, 46, 0.4), 0 0 20px rgba(255,215,0,0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 20px rgba(255,215,0,0.4);
             background: linear-gradient(135deg, #6B4A38 0%, #C49A6C 50%, #FCE4EC 100%);
         }
 
         .footer {
             text-align: center;
             margin-top: 25px;
-            color: #FCE4EC;
+            color: #FFF8EF;
             font-size: 13px;
             padding: 12px;
-            background: rgba(92, 61, 46, 0.7);
+            background: rgba(74, 42, 26, 0.65);
             border-radius: 50px;
             backdrop-filter: blur(4px);
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Efek bling bling di footer */
         .footer::before {
             content: "✨";
             margin-right: 8px;
@@ -286,7 +317,20 @@
     </style>
 </head>
 <body>
-    <div class="sparkle-bg"></div>
+    <div class="flower-pattern"></div>
+    <div class="sparkle-effect"></div>
+    <div class="stars">
+        <span style="left: 10%; animation-duration: 6s;">✨</span>
+        <span style="left: 25%; animation-duration: 8s;">⭐</span>
+        <span style="left: 40%; animation-duration: 7s;">💎</span>
+        <span style="left: 55%; animation-duration: 9s;">✨</span>
+        <span style="left: 70%; animation-duration: 5s;">⭐</span>
+        <span style="left: 85%; animation-duration: 10s;">💎</span>
+        <span style="left: 15%; animation-duration: 7.5s;">✨</span>
+        <span style="left: 50%; animation-duration: 6.5s;">⭐</span>
+        <span style="left: 75%; animation-duration: 8.5s;">💎</span>
+        <span style="left: 95%; animation-duration: 7s;">✨</span>
+    </div>
     
     <!-- Boneka Beruang Lucu -->
     <div class="bear-deco" title="🐻 Halo! Aku Bear-Bear 💕">🐻‍❄️</div>

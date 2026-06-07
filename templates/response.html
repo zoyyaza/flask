@@ -3,58 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caesar Cipher</title>
+    <title>🐻 Hasil Enkripsi</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, #5D4037, #D4A373, #F8BBD0);
+            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 50%, #D4A373 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
-        .card {
-            background: rgba(255,248,231,0.95);
-            border-radius: 40px;
-            padding: 40px;
-            text-align: center;
+
+        .container {
             max-width: 500px;
             width: 100%;
         }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
+
+        .card {
+            background: rgba(255, 248, 231, 0.96);
+            border-radius: 40px;
+            padding: 40px 35px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             border: 2px solid #F8BBD0;
-            border-radius: 30px;
-            font-size: 16px;
         }
-        button {
+
+        .bear {
+            font-size: 60px;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            color: #C2185B;
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+
+        .success-text {
+            color: #AD1457;
+            margin-bottom: 25px;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #FCE4EC, #F8BBD0);
+            padding: 25px;
+            border-radius: 30px;
+            margin: 20px 0;
+        }
+
+        .result-label {
+            color: #AD1457;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* TEMPAT HASIL ENKRIPSI - PASTIKAN NAMA VARIABLE SAMA */
+        .hasil-enkripsi {
+            background: white;
+            padding: 18px;
+            border-radius: 25px;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #5D4037;
+            font-family: monospace;
+            letter-spacing: 1px;
+            border: 2px solid #E91E63;
+            word-break: break-all;
+        }
+
+        .btn-back {
             background: linear-gradient(135deg, #E91E63, #F06292);
             color: white;
-            padding: 12px 30px;
             border: none;
-            border-radius: 30px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 14px;
         }
-        .bear {
-            font-size: 50px;
+
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233,30,99,0.3);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #AD1457;
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="bear">🐻🔐</div>
-        <h1>CAESAR CIPHER</h1>
-        <form method="POST">
-            <input type="text" name="namaDepan" placeholder="Nama Depan" required>
-            <input type="text" name="namaBelakang" placeholder="Nama Belakang" required>
-            <button type="submit">ENKRIPSI SEKARANG</button>
-        </form>
+    <div class="container">
+        <div class="card">
+            <div class="bear">🔐🐻</div>
+            <h1>✨ Berhasil! ✨</h1>
+            <p class="success-text">Nama anda telah berhasil dienkripsi</p>
+
+            <div class="result-box">
+                <div class="result-label">📝 NAMA TERENKRIPSI</div>
+                <!-- INI VARIABLE YANG DIPANGGIL - HARUS SAMA DENGAN DI APP.PY -->
+                <div class="hasil-enkripsi">{{ nama_terenkripsi }}</div>
+            </div>
+
+            <div class="footer">
+                💻 Pemrograman Kriptografi | Caesar Cipher 💻
+            </div>
+
+            <a href="/" class="btn-back">🏠 KEMBALI</a>
+        </div>
     </div>
 </body>
 </html>

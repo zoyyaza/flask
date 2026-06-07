@@ -3,11 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>🐻 Caesar Cipher - Coklat Cream ✨</title>
+    <title>🐻 CAESAR CIPHER - Pink Cream 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FCE4EC 0%, #FFF3E0 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background bunga dan bintang */
+        body::before {
+            content: "🌸⭐🌷✨🌸⭐";
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            font-size: 50px;
+            opacity: 0.15;
+            white-space: nowrap;
+            pointer-events: none;
+            width: 100%;
+            text-align: center;
+            animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(50px); }
+        }
+
+        /* Boneka Beruang */
+        .bear-deco {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 70px;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .bear-deco-left {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 55px;
+            animation: wave 3s infinite;
+            z-index: 100;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .bear-header {
+            font-size: 50px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+            margin: 0 10px;
+        }
+
+        h1 {
+            color: #C2185B;
+            font-size: 2.5em;
+            font-weight: 700;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 30px;
+            border-radius: 60px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #E91E63;
+            margin-top: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.15);
+            border: 2px solid #F8BBD0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.2);
+            border-color: #F06292;
+        }
+
+        .card h2 {
+            color: #C2185B;
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 3px solid #F8BBD0;
+            padding-bottom: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #AD1457;
+            font-size: 0.95em;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #F8BBD0;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #E91E63;
+            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+        }
+
+        input::placeholder {
+            color: #F48FB1;
+            font-weight: 300;
+        }
+
+        .shift-input {
+            width: 120px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 35px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
+            background: linear-gradient(135deg, #F06292 0%, #E91E63 100%);
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.6em;
+            }
+            .bear-header {
+                font-size: 35px;
+            }
+        }
+
+        .heart-deco {
+            text-align: center;
+            margin-top: 20px;
+            color: #E91E63;
+            font-size: 14px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Boneka Beruang Lucu -->
     <div class="bear-deco" title="🐻 Halo! Aku Bear-Bear 💕">🐻‍❄️</div>
     <div class="bear-deco-left" title="🧸 Aku temanmu!">🧸</div>
 
@@ -22,11 +241,8 @@
         </div>
 
         <div class="two-columns">
-            <!-- Enkripsi Card -->
             <div class="card">
-                <h2>
-                    <span>🔐</span> Enkripsi Yuk!
-                </h2>
+                <h2>🔐 ENKRIPSI YUK!</h2>
                 <form method="POST" action="/">
                     <div class="form-group">
                         <label>🐻 Nama Depan</label>
@@ -40,15 +256,12 @@
                         <label>🔢 Shift (1-25)</label>
                         <input type="number" name="shift" min="1" max="25" value="3" class="shift-input">
                     </div>
-                    <button type="submit">🔒 Enkripsi Sekarang</button>
+                    <button type="submit">🔒 ENKRIPSI SEKARANG</button>
                 </form>
             </div>
 
-            <!-- Dekripsi Card -->
             <div class="card">
-                <h2>
-                    <span>🔓</span> Dekripsi Yuk!
-                </h2>
+                <h2>🔓 DEKRIPSI YUK!</h2>
                 <form method="POST" action="/">
                     <div class="form-group">
                         <label>🔐 Teks Rahasia</label>
@@ -58,7 +271,7 @@
                         <label>🔢 Shift (1-25)</label>
                         <input type="number" name="decrypt_shift" min="1" max="25" value="3" class="shift-input">
                     </div>
-                    <button type="submit">🔓 Dekripsi Sekarang</button>
+                    <button type="submit">🔓 DEKRIPSI SEKARANG</button>
                 </form>
             </div>
         </div>

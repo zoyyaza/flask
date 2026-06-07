@@ -1,64 +1,299 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-   <title>Demo Text</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐻 Hasil Enkripsi - Caesar Cipher</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', 'Segoe UI', 'Poppins', sans-serif;
+            /* Background dominan pink gradasi */
+            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 30%, #F48FB1 60%, #F06292 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Gambar Background - Cookies Pattern (lebih halus) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/cookies.png');
+            background-repeat: repeat;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Gambar Background - Bunga Pink */
+        .flower-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: url('https://cdn.pixabay.com/photo/2017/01/13/04/56/rose-1976484_640.png');
+            background-repeat: repeat;
+            background-size: 60px;
+            opacity: 0.08;
+        }
+
+        /* Efek Bling Bling lebih terang */
+        .sparkle-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(255,215,0,0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Bintang berkilau lebih banyak */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .stars span {
+            position: absolute;
+            color: #FFD700;
+            font-size: 22px;
+            animation: floatStar 8s infinite linear;
+            opacity: 0.7;
+        }
+        
+        @keyframes floatStar {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Boneka Beruang - tetap ada */
+        .bear-deco {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 75px;
+            animation: bounce 2s infinite;
+            z-index: 100;
+            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
+        }
+
+        .bear-deco-left {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 60px;
+            animation: wave 3s infinite;
+            z-index: 100;
+            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(12deg); }
+            75% { transform: rotate(-12deg); }
+        }
+
+        .container {
+            max-width: 550px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Card dengan background cream transparan */
+        .card {
+            background: rgba(255, 248, 231, 0.96);
+            border-radius: 50px;
+            padding: 45px 35px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2), 0 0 30px rgba(255,105,180,0.3);
+            border: 2px solid #FFF;
+            text-align: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .bear-large {
+            font-size: 85px;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+            display: inline-block;
+        }
+
+        h1 {
+            color: #C2185B;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(255,215,0,0.2);
+            background: linear-gradient(135deg, #C2185B, #E91E63);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Result box dominan pink */
+        .result-box {
+            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 50%, #F48FB1 100%);
+            padding: 25px;
+            border-radius: 40px;
+            margin: 25px 0;
+            border: 2px solid #FFF;
+            box-shadow: inset 0 0 15px rgba(255,255,255,0.5), 0 0 20px rgba(255,105,180,0.2);
+        }
+
+        .result-label {
+            color: #AD1457;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-shadow: 0 0 2px rgba(255,255,255,0.5);
+        }
+
+        .result-text {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 20px;
+            border-radius: 35px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #AD1457;
+            word-break: break-all;
+            border: 1px solid #F8BBD0;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .result-text.encrypted {
+            background: #FFF0F5;
+            color: #D81B60;
+        }
+
+        /* Button dengan gradasi pink */
+        .btn-primary {
+            background: linear-gradient(135deg, #E91E63 0%, #F06292 50%, #F8BBD0 100%);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 45px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 16px;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.5), 0 0 20px rgba(255,215,0,0.3);
+            background: linear-gradient(135deg, #D81B60 0%, #E91E63 50%, #F48FB1 100%);
+        }
+
+        .celebrate {
+            font-size: 38px;
+            margin: 15px 0;
+            animation: sparkle 1.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); text-shadow: 0 0 10px #FFD700; }
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+            .bear-large {
+                font-size: 60px;
+            }
+            h1 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
 </head>
 <body>
-   <h2>Hasil Enkripsi</h2>
-   
-   <p>Nama Asli: <strong>{{ nama_asli }}</strong></p>
-   <p>NamaTerenkripsi (Caesar Cipher): <strong style="color: red;">{{ nama_terenkripsi }}</strong></p>
-   
-   <br>
-   <a href="/">Kembali ke Form</a>
-   
-<title>Hasil Enkripsi</title>
+    <div class="flower-pattern"></div>
+    <div class="sparkle-effect"></div>
+    <div class="stars">
+        <span style="left: 5%; animation-duration: 6s;">✨</span>
+        <span style="left: 15%; animation-duration: 7s;">💖</span>
+        <span style="left: 25%; animation-duration: 8s;">⭐</span>
+        <span style="left: 35%; animation-duration: 6.5s;">✨</span>
+        <span style="left: 45%; animation-duration: 9s;">💎</span>
+        <span style="left: 55%; animation-duration: 5.5s;">💖</span>
+        <span style="left: 65%; animation-duration: 7.5s;">✨</span>
+        <span style="left: 75%; animation-duration: 8.5s;">⭐</span>
+        <span style="left: 85%; animation-duration: 6s;">💎</span>
+        <span style="left: 95%; animation-duration: 7s;">💖</span>
+    </div>
+    
+    <div class="bear-deco">🐻‍❄️</div>
+    <div class="bear-deco-left">🧸</div>
 
-<style>
+    <div class="container">
+        <div class="card">
+            <div class="bear-large">
+                🔐🐻
+            </div>
+            <h1>✨ Hasil Enkripsi Namamu ✨</h1>
+            
+            <div class="result-box">
+                <div class="result-label">📝 Nama Panjangmu</div>
+                <div class="result-text">{{ nama_asli }}</div>
+                
+                <div class="result-label" style="margin-top: 20px;">🔐 Kode Rahasianya</div>
+                <div class="result-text encrypted">{{ hasil_enkripsi }}</div>
+                
+                <div class="result-label" style="margin-top: 15px;">⚙️ Shift yang digunakan: 3</div>
+            </div>
 
-body{
-    background:#dbeafe;
-    font-family:Arial;
-}
+            <div class="celebrate">
+                🎀✨🐻✨🎀
+            </div>
 
-.kotak{
-    width:500px;
-    margin:auto;
-    margin-top:80px;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    border:1px solid #2563eb;
-}
-
-h2{
-    color:#1e40af;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="kotak">
-
-<h2>Hasil Enkripsi Caesar Cipher</h2>
-
-<p>
-<b>Nama Asli :</b>
-{{ nama_asli }}
-</p>
-
-<p>
-<b>Nama Terenkripsi :</b>
-{{ nama_terenkripsi }}
-</p>
-
-<br>
-
-<a href="/">Kembali</a>
-
-</div>
-
+            <a href="/" class="btn-primary">🏠 Kembali ke Beranda 🍯</a>
+        </div>
+    </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐻 CAESAR CIPHER - Coklat Cream</title>
+    <title>🐻 CAESAR CIPHER - Coklat Pink Cream</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
         
@@ -15,15 +15,36 @@
 
         body {
             font-family: 'Quicksand', 'Segoe UI', 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #D2B48C 0%, #F5DEB3 100%);
+            background: linear-gradient(135deg, #5C3D2E 0%, #D4A373 50%, #FCE4EC 100%);
             min-height: 100vh;
             padding: 20px;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Background gambar coklat/cookies */
+        /* Efek Bling Bling - Bintang berkilau */
         body::before {
+            content: "✨💎✨💎✨💎✨💎✨💎✨💎✨";
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 40px;
+            opacity: 0.25;
+            white-space: nowrap;
+            pointer-events: none;
+            width: 100%;
+            text-align: center;
+            animation: sparkle 3s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.15; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(1.05); }
+        }
+
+        /* Background gambar coklat/cookies */
+        body::after {
             content: "";
             position: fixed;
             top: 0;
@@ -31,24 +52,27 @@
             width: 100%;
             height: 100%;
             background-image: url('https://www.transparenttextures.com/patterns/cookies.png');
-            opacity: 0.1;
+            opacity: 0.12;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Background bunga-bunga lucu */
-        body::after {
-            content: "🌸🌼🌷🌸🌼🌸";
+        /* Bintang berkilauan di background */
+        .sparkle-bg {
             position: fixed;
-            bottom: 0;
+            top: 0;
             left: 0;
-            font-size: 50px;
-            opacity: 0.15;
-            white-space: nowrap;
-            pointer-events: none;
             width: 100%;
-            text-align: center;
+            height: 100%;
+            pointer-events: none;
             z-index: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.1) 0%, transparent 50%);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
         }
 
         /* Boneka Beruang pojok kanan */
@@ -59,7 +83,7 @@
             font-size: 80px;
             animation: bounce 2s infinite;
             cursor: pointer;
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
             z-index: 100;
         }
 
@@ -74,7 +98,7 @@
             left: 20px;
             font-size: 65px;
             animation: wave 3s infinite;
-            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
             z-index: 100;
         }
 
@@ -110,52 +134,54 @@
         }
 
         h1 {
-            color: #5C3D2E;
+            color: #FCE4EC;
             font-size: 2.2em;
             font-weight: 700;
             letter-spacing: 2px;
             display: inline-block;
-            background: rgba(255, 248, 231, 0.85);
+            background: rgba(92, 61, 46, 0.85);
             padding: 12px 35px;
             border-radius: 60px;
             backdrop-filter: blur(5px);
-            box-shadow: 0 5px 20px rgba(92, 61, 46, 0.15);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2), 0 0 15px rgba(255,215,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .subtitle {
             text-align: center;
-            color: #8B5E3C;
+            color: #FCE4EC;
             margin-top: 12px;
             font-size: 1em;
             font-weight: 500;
             font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
         /* Card utama */
         .card {
-            background: rgba(255, 248, 231, 0.95);
+            background: rgba(255, 248, 231, 0.96);
             border-radius: 40px;
             padding: 40px;
             margin-top: 20px;
-            box-shadow: 0 20px 40px rgba(92, 61, 46, 0.2);
-            border: 2px solid #E8D5B7;
+            box-shadow: 0 20px 40px rgba(92, 61, 46, 0.25), 0 0 20px rgba(255,215,0,0.2);
+            border: 2px solid #F8BBD0;
             transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(92, 61, 46, 0.25);
+            box-shadow: 0 25px 50px rgba(92, 61, 46, 0.3), 0 0 30px rgba(255,215,0,0.3);
         }
 
         .card h2 {
-            color: #6B3E26;
+            color: #5C3D2E;
             margin-bottom: 25px;
             font-size: 1.8em;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            border-bottom: 3px solid #E8C9A0;
+            border-bottom: 3px solid #F8BBD0;
             padding-bottom: 15px;
         }
 
@@ -167,14 +193,14 @@
             display: block;
             margin-bottom: 10px;
             font-weight: 600;
-            color: #8B5E3C;
+            color: #5C3D2E;
             font-size: 1em;
         }
 
         input {
             width: 100%;
             padding: 14px 20px;
-            border: 2px solid #E8D5B7;
+            border: 2px solid #F8BBD0;
             border-radius: 30px;
             font-size: 16px;
             transition: all 0.3s;
@@ -185,7 +211,7 @@
         input:focus {
             outline: none;
             border-color: #D4A373;
-            box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.15);
+            box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.15), 0 0 10px rgba(255,215,0,0.3);
         }
 
         input::placeholder {
@@ -194,7 +220,7 @@
         }
 
         button {
-            background: linear-gradient(135deg, #C49A6C 0%, #B8860B 100%);
+            background: linear-gradient(135deg, #5C3D2E 0%, #D4A373 50%, #F8BBD0 100%);
             color: white;
             border: none;
             padding: 14px 35px;
@@ -206,23 +232,36 @@
             font-family: 'Quicksand', sans-serif;
             width: 100%;
             margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(92, 61, 46, 0.3);
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.35);
-            background: linear-gradient(135deg, #B8860B 0%, #C49A6C 100%);
+            box-shadow: 0 8px 25px rgba(92, 61, 46, 0.4), 0 0 20px rgba(255,215,0,0.4);
+            background: linear-gradient(135deg, #6B4A38 0%, #C49A6C 50%, #FCE4EC 100%);
         }
 
         .footer {
             text-align: center;
             margin-top: 25px;
-            color: #8B6914;
+            color: #FCE4EC;
             font-size: 13px;
             padding: 12px;
-            background: rgba(255, 248, 231, 0.7);
+            background: rgba(92, 61, 46, 0.7);
             border-radius: 50px;
             backdrop-filter: blur(4px);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Efek bling bling di footer */
+        .footer::before {
+            content: "✨";
+            margin-right: 8px;
+        }
+
+        .footer::after {
+            content: "✨";
+            margin-left: 8px;
         }
 
         /* Responsive */
@@ -247,6 +286,8 @@
     </style>
 </head>
 <body>
+    <div class="sparkle-bg"></div>
+    
     <!-- Boneka Beruang Lucu -->
     <div class="bear-deco" title="🐻 Halo! Aku Bear-Bear 💕">🐻‍❄️</div>
     <div class="bear-deco-left" title="🧸 Aku teman manismu!">🧸</div>

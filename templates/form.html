@@ -1,6 +1,5 @@
 <html>
-<head>
-<<<<<<< HEAD
+<head> <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
    <title>Demo Text</title>
 </head>
 <body>
@@ -14,70 +13,27 @@
       <p><input type="submit"  value="Kirim" /></p>
    </form>
    
-=======
-    <title>Caesar Cipher</title>
+</body> <body>
 
-    <style>
+<div class="pocket">
 
-        body{
-            background-color:#dbeafe;
-            font-family:Arial;
-        }
+    <h1>DENIM CIPHER</h1>
 
-        .kotak{
-            width:500px;
-            margin:auto;
-            margin-top:80px;
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            border:1px solid #2563eb;
-        }
+    <form method="POST">
 
-        h2{
-            text-align:center;
-            color:#1e40af;
-        }
+        <label>Nama Depan</label>
+        <input type="text" name="namaDepan">
 
-        input[type=text]{
-            width:100%;
-            padding:10px;
-            margin-top:5px;
-            margin-bottom:15px;
-        }
+        <label>Nama Belakang</label>
+        <input type="text" name="namaBelakang">
 
-        input[type=submit]{
-            background:#2563eb;
-            color:white;
-            padding:10px;
-            border:none;
-            width:100%;
-        }
+        <button type="submit">
+            ENKRIPSI
+        </button>
 
-    </style>
-
-</head>
-
-<body>
-
-<div class="kotak">
-
-<h2>Enkripsi Caesar Cipher</h2>
-
-<form action="/" method="post">
-
-Nama Depan<br>
-<input type="text" name="namaDepan">
-
-Nama Belakang<br>
-<input type="text" name="namaBelakang">
-
-<input type="submit" value="Enkripsi">
-
-</form>
+    </form>
 
 </div>
 
->>>>>>> d8a5a54efd6017e81d46548ab98fb03a0a2e40aa
 </body>
 </html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐻 CAESAR CIPHER - Pink Cream 💕</title>
+    <title>🐻 CAESAR CIPHER - Coklat Cream</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -14,17 +14,31 @@
         }
 
         body {
-            font-family: 'Poppins', 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #FCE4EC 0%, #FFF3E0 100%);
+            font-family: 'Quicksand', 'Segoe UI', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #D2B48C 0%, #F5DEB3 100%);
             min-height: 100vh;
             padding: 20px;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Background bunga dan bintang */
+        /* Background gambar coklat/cookies */
         body::before {
-            content: "🌸⭐🌷✨🌸⭐";
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/cookies.png');
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Background bunga-bunga lucu */
+        body::after {
+            content: "🌸🌼🌷🌸🌼🌸";
             position: fixed;
             bottom: 0;
             left: 0;
@@ -34,201 +48,208 @@
             pointer-events: none;
             width: 100%;
             text-align: center;
-            animation: float 10s infinite linear;
+            z-index: 0;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(50px); }
-        }
-
-        /* Boneka Beruang */
+        /* Boneka Beruang pojok kanan */
         .bear-deco {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            font-size: 70px;
+            font-size: 80px;
             animation: bounce 2s infinite;
             cursor: pointer;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
             z-index: 100;
         }
 
+        .bear-deco:hover {
+            animation: bounce 0.5s infinite;
+        }
+
+        /* Boneka Beruang pojok kiri */
         .bear-deco-left {
             position: fixed;
             bottom: 20px;
             left: 20px;
-            font-size: 55px;
+            font-size: 65px;
             animation: wave 3s infinite;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.15));
             z-index: 100;
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
         }
 
         @keyframes wave {
             0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(10deg); }
-            75% { transform: rotate(-10deg); }
+            25% { transform: rotate(12deg); }
+            75% { transform: rotate(-12deg); }
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
+        /* Header dengan beruang */
         .header {
             text-align: center;
             margin-bottom: 30px;
         }
 
         .bear-header {
-            font-size: 50px;
+            font-size: 55px;
             display: inline-block;
             animation: bounce 2s infinite;
             margin: 0 10px;
         }
 
         h1 {
-            color: #C2185B;
-            font-size: 2.5em;
+            color: #5C3D2E;
+            font-size: 2.2em;
             font-weight: 700;
+            letter-spacing: 2px;
             display: inline-block;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 30px;
+            background: rgba(255, 248, 231, 0.85);
+            padding: 12px 35px;
             border-radius: 60px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 5px 20px rgba(92, 61, 46, 0.15);
         }
 
         .subtitle {
             text-align: center;
-            color: #E91E63;
-            margin-top: 10px;
-            font-size: 1.1em;
+            color: #8B5E3C;
+            margin-top: 12px;
+            font-size: 1em;
             font-weight: 500;
+            font-style: italic;
         }
 
+        /* Card utama */
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 30px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(233, 30, 99, 0.15);
-            border: 2px solid #F8BBD0;
+            background: rgba(255, 248, 231, 0.95);
+            border-radius: 40px;
+            padding: 40px;
+            margin-top: 20px;
+            box-shadow: 0 20px 40px rgba(92, 61, 46, 0.2);
+            border: 2px solid #E8D5B7;
             transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(233, 30, 99, 0.2);
-            border-color: #F06292;
+            box-shadow: 0 25px 50px rgba(92, 61, 46, 0.25);
         }
 
         .card h2 {
-            color: #C2185B;
+            color: #6B3E26;
             margin-bottom: 25px;
-            font-size: 1.6em;
+            font-size: 1.8em;
             display: flex;
             align-items: center;
-            gap: 10px;
-            border-bottom: 3px solid #F8BBD0;
-            padding-bottom: 12px;
+            justify-content: center;
+            gap: 12px;
+            border-bottom: 3px solid #E8C9A0;
+            padding-bottom: 15px;
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 25px;
         }
 
         label {
             display: block;
             margin-bottom: 10px;
             font-weight: 600;
-            color: #AD1457;
-            font-size: 0.95em;
+            color: #8B5E3C;
+            font-size: 1em;
         }
 
         input {
             width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #F8BBD0;
-            border-radius: 25px;
+            padding: 14px 20px;
+            border: 2px solid #E8D5B7;
+            border-radius: 30px;
             font-size: 16px;
             transition: all 0.3s;
             background: white;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Quicksand', sans-serif;
         }
 
         input:focus {
             outline: none;
-            border-color: #E91E63;
-            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+            border-color: #D4A373;
+            box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.15);
         }
 
         input::placeholder {
-            color: #F48FB1;
-            font-weight: 300;
-        }
-
-        .shift-input {
-            width: 120px;
+            color: #C4A882;
+            font-weight: 400;
         }
 
         button {
-            background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+            background: linear-gradient(135deg, #C49A6C 0%, #B8860B 100%);
             color: white;
             border: none;
             padding: 14px 35px;
-            border-radius: 35px;
-            font-size: 16px;
+            border-radius: 40px;
+            font-size: 18px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             width: 100%;
             margin-top: 10px;
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.4);
-            background: linear-gradient(135deg, #F06292 0%, #E91E63 100%);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.35);
+            background: linear-gradient(135deg, #B8860B 0%, #C49A6C 100%);
         }
 
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #8B6914;
+            font-size: 13px;
+            padding: 12px;
+            background: rgba(255, 248, 231, 0.7);
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
         }
 
-        @media (max-width: 768px) {
-            .two-columns {
-                grid-template-columns: 1fr;
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card {
+                padding: 25px;
             }
             h1 {
                 font-size: 1.6em;
+                padding: 8px 20px;
             }
             .bear-header {
-                font-size: 35px;
+                font-size: 40px;
             }
-        }
-
-        .heart-deco {
-            text-align: center;
-            margin-top: 20px;
-            color: #E91E63;
-            font-size: 14px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 50px;
+            .bear-deco {
+                font-size: 55px;
+            }
+            .bear-deco-left {
+                font-size: 45px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Boneka Beruang Lucu -->
     <div class="bear-deco" title="🐻 Halo! Aku Bear-Bear 💕">🐻‍❄️</div>
-    <div class="bear-deco-left" title="🧸 Aku temanmu!">🧸</div>
+    <div class="bear-deco-left" title="🧸 Aku teman manismu!">🧸</div>
 
     <div class="container">
         <div class="header">
@@ -240,43 +261,22 @@
             ✨ tempatnya bikin pesan rahasia yang manis ✨
         </div>
 
-        <div class="two-columns">
-            <div class="card">
-                <h2>🔐 ENKRIPSI YUK!</h2>
-                <form method="POST" action="/">
-                    <div class="form-group">
-                        <label>🐻 Nama Depan</label>
-                        <input type="text" name="namaDepan" placeholder="contoh: Raisa" required>
-                    </div>
-                    <div class="form-group">
-                        <label>🍯 Nama Belakang</label>
-                        <input type="text" name="namaBelakang" placeholder="contoh: Andriana" required>
-                    </div>
-                    <div class="form-group">
-                        <label>🔢 Shift (1-25)</label>
-                        <input type="number" name="shift" min="1" max="25" value="3" class="shift-input">
-                    </div>
-                    <button type="submit">🔒 ENKRIPSI SEKARANG</button>
-                </form>
-            </div>
-
-            <div class="card">
-                <h2>🔓 DEKRIPSI YUK!</h2>
-                <form method="POST" action="/">
-                    <div class="form-group">
-                        <label>🔐 Teks Rahasia</label>
-                        <input type="text" name="encrypted_text" placeholder="contoh: Udlvd Dqguldqd" required>
-                    </div>
-                    <div class="form-group">
-                        <label>🔢 Shift (1-25)</label>
-                        <input type="number" name="decrypt_shift" min="1" max="25" value="3" class="shift-input">
-                    </div>
-                    <button type="submit">🔓 DEKRIPSI SEKARANG</button>
-                </form>
-            </div>
+        <div class="card">
+            <h2>🔐 ENKRIPSI</h2>
+            <form method="POST" action="/">
+                <div class="form-group">
+                    <label>🐻 NAMA DEPAN</label>
+                    <input type="text" name="namaDepan" placeholder="contoh: Raisa" required>
+                </div>
+                <div class="form-group">
+                    <label>🍯 NAMA BELAKANG</label>
+                    <input type="text" name="namaBelakang" placeholder="contoh: Andriana" required>
+                </div>
+                <button type="submit">🔒 ENKRIPSI SEKARANG</button>
+            </form>
         </div>
         
-        <div class="heart-deco">
+        <div class="footer">
             💖 made with love • bear & honey • caesar cipher 💖
         </div>
     </div>

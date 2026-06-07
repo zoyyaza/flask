@@ -1,32 +1,26 @@
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        namaDepan = request.form.get('namaDepan', '')
-        namaBelakang = request.form.get('namaBelakang', '')
-        
-        if namaDepan and namaBelakang:
-            nama = f"{namaDepan} {namaBelakang}"
-            
-            # Caesar Cipher yang benar
-            hasil = ""
-            k = 3
-            for char in nama:
-                if char.isupper():
-                    hasil += chr((ord(char) + k - 65) % 26 + 65)
-                elif char.islower():
-                    hasil += chr((ord(char) + k - 97) % 26 + 97)
-                else:
-                    hasil += char
-            
-            return render_template('response.html', 
-                                 nama_asli=nama, 
-                                 nama_terenkripsi=hasil)
-    
-    return render_template('form.html')
+   if request.method == 'POST':
+      namaDepan = request.form['namaDepan']
+      namaBelakang = request.form['namaBelakang']
+      nama = f"{namaDepan} {namaBelakang}"
+      
+      hasil = ""
+      for huruf in nama:
+          if huruf.isupper():
+              hasil += chr((ord(huruf) - 65 + 3) % 26 + 65)
+          elif huruf.islower():
+              hasil += chr((ord(huruf) - 97 + 3) % 26 + 97)
+          else:
+              hasil += huruf
+          
+      return render_template('response.html', nama_asli=nama, nama_terenkripsi=hasil)
+      
+   return render_template('form.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+   application.run(debug=True)

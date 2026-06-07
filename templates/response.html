@@ -15,8 +15,7 @@
 
         body {
             font-family: 'Quicksand', 'Segoe UI', 'Poppins', sans-serif;
-            /* Dominan Pink + sentuhan Coklat */
-            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 30%, #F48FB1 60%, #E91E63 85%, #D4A373 100%);
+            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 40%, #F48FB1 70%, #D4A373 100%);
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -25,7 +24,7 @@
             position: relative;
         }
 
-        /* Pattern cookies halus */
+        /* Pattern cookies */
         body::before {
             content: "";
             position: fixed;
@@ -35,7 +34,7 @@
             height: 100%;
             background-image: url('https://www.transparenttextures.com/patterns/cookies.png');
             background-repeat: repeat;
-            opacity: 0.08;
+            opacity: 0.1;
             pointer-events: none;
             z-index: 0;
         }
@@ -52,10 +51,9 @@
             background-image: url('https://cdn.pixabay.com/photo/2017/01/13/04/56/rose-1976484_640.png');
             background-repeat: repeat;
             background-size: 60px;
-            opacity: 0.05;
+            opacity: 0.06;
         }
 
-        /* Efek Bling Bling */
         .sparkle-effect {
             position: fixed;
             top: 0;
@@ -73,7 +71,6 @@
             50% { opacity: 0.9; }
         }
 
-        /* Bintang berkilau */
         .stars {
             position: fixed;
             top: 0;
@@ -88,19 +85,18 @@
         .stars span {
             position: absolute;
             color: #FFD700;
-            font-size: 22px;
+            font-size: 20px;
             animation: floatStar 8s infinite linear;
-            opacity: 0.7;
+            opacity: 0.6;
         }
         
         @keyframes floatStar {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
             100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Boneka Beruang */
         .bear-deco {
             position: fixed;
             bottom: 20px;
@@ -138,7 +134,6 @@
             z-index: 1;
         }
 
-        /* Card dengan background cream */
         .card {
             background: rgba(255, 248, 231, 0.96);
             border-radius: 50px;
@@ -157,61 +152,57 @@
 
         h1 {
             color: #C2185B;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 1.8em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
 
-        /* Result box - dominan pink */
+        .success-text {
+            color: #AD1457;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
         .result-box {
             background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 100%);
             padding: 25px;
             border-radius: 40px;
-            margin: 25px 0;
+            margin: 20px 0;
             border: 2px solid #F48FB1;
-            box-shadow: 0 0 20px rgba(233, 30, 99, 0.15);
         }
 
         .result-label {
             color: #AD1457;
-            font-size: 0.95em;
-            margin-bottom: 8px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
+        /* INI YANG PENTING - HASIL ENKRIPSI */
         .result-text {
             background: white;
-            padding: 15px 20px;
+            padding: 20px;
             border-radius: 35px;
-            font-size: 1.3em;
+            font-size: 1.5em;
             font-weight: 700;
             color: #4A2A1A;
             word-break: break-all;
-            border: 2px solid #F48FB1;
+            border: 2px solid #E91E63;
             margin: 10px 0;
-            font-family: monospace;
-            letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
         }
 
-        .result-text.encrypted {
-            background: #FFF0F5;
-            color: #C2185B;
-            font-size: 1.4em;
-        }
-
-        /* Info shift */
         .shift-info {
             margin-top: 15px;
             color: #AD1457;
             font-size: 0.85em;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.6);
             display: inline-block;
             padding: 5px 15px;
             border-radius: 30px;
         }
 
-        /* Button */
         .btn-primary {
             background: linear-gradient(135deg, #E91E63 0%, #F06292 70%, #D4A373 100%);
             color: white;
@@ -225,28 +216,16 @@
             font-family: 'Quicksand', sans-serif;
             font-size: 16px;
             margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+            cursor: pointer;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.5);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
         }
 
-        .celebrate {
-            font-size: 35px;
-            margin: 15px 0;
-            animation: sparkle 1.5s infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); text-shadow: 0 0 10px #FFD700; }
-        }
-
-        /* Footer kecil seperti teman */
         .footer-note {
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 11px;
             color: #AD1457;
             text-align: center;
@@ -261,17 +240,9 @@
             .card {
                 padding: 30px 20px;
             }
-            .bear-large {
-                font-size: 60px;
-            }
-            h1 {
-                font-size: 1.4em;
-            }
             .result-text {
-                font-size: 1.1em;
-            }
-            .result-text.encrypted {
                 font-size: 1.2em;
+                padding: 15px;
             }
         }
     </style>
@@ -280,16 +251,11 @@
     <div class="flower-pattern"></div>
     <div class="sparkle-effect"></div>
     <div class="stars">
-        <span style="left: 5%; animation-duration: 6s;">✨</span>
-        <span style="left: 15%; animation-duration: 7s;">💖</span>
-        <span style="left: 25%; animation-duration: 8s;">⭐</span>
-        <span style="left: 35%; animation-duration: 6.5s;">✨</span>
-        <span style="left: 45%; animation-duration: 9s;">💎</span>
-        <span style="left: 55%; animation-duration: 5.5s;">💖</span>
-        <span style="left: 65%; animation-duration: 7.5s;">✨</span>
-        <span style="left: 75%; animation-duration: 8.5s;">⭐</span>
-        <span style="left: 85%; animation-duration: 6s;">💎</span>
-        <span style="left: 95%; animation-duration: 7s;">💖</span>
+        <span style="left: 10%; animation-duration: 6s;">✨</span>
+        <span style="left: 30%; animation-duration: 8s;">💖</span>
+        <span style="left: 50%; animation-duration: 7s;">⭐</span>
+        <span style="left: 70%; animation-duration: 9s;">✨</span>
+        <span style="left: 90%; animation-duration: 5s;">💎</span>
     </div>
     
     <div class="bear-deco">🐻‍❄️</div>
@@ -301,11 +267,12 @@
                 🔐🐻
             </div>
             <h1>✨ Berhasil! ✨</h1>
-            <p style="color: #AD1457; margin-bottom: 10px;">Nama anda telah berhasil dienkripsi</p>
+            <p class="success-text">Nama anda telah berhasil dienkripsi</p>
             
             <div class="result-box">
                 <div class="result-label">📝 NAMA TERENKRIPSI</div>
-                <div class="result-text encrypted">{{ hasil_enkripsi }}</div>
+                <!-- INI HASIL ENKRIPSI NYA -->
+                <div class="result-text">{{ hasil_enkripsi }}</div>
                 
                 <div class="shift-info">⚙️ Shift yang digunakan: 3</div>
             </div>
@@ -315,10 +282,6 @@
             </div>
 
             <a href="/" class="btn-primary">🏠 KEMBALI</a>
-            
-            <div class="celebrate">
-                🎀✨🐻✨🎀
-            </div>
         </div>
     </div>
 </body>

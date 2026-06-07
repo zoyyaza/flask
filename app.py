@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 
-application = Flask(_name_)
+application = Flask(__name__)
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
@@ -17,5 +17,5 @@ def index():
       return render_template('response.html', nama_asli=nama, nama_terenkripsi=C)
    return render_template('form.html')
 
-if _name_ == '_main_':
+if __name__ == '__main__':
    application.run(debug=True)

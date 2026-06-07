@@ -1,21 +1,40 @@
 from flask import Flask, render_template, request
 
-application = Flask(__name__)
+app = Flask(__name__)
 
-@application.route('/', methods=['GET', 'POST'])
+def caesar_encrypt(text, shift):
+    result = ""
+    for char in text:
+        if char.isupper():
+            result += chr((ord(char) + shift - 65) % 26 + 65)
+        elif char.islower():
+            result += chr((ord(char) + shift - 97) % 26 + 97)
+        else:
+            result += char
+    return result
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-   if request.method == 'POST':
-      namaDepan = request.form['namaDepan']
-      namaBelakang = request.form['namaBelakang']
-      nama = '%s %s' % (namaDepan, namaBelakang)
-      p = nama
-      C = ' '
-      k = 3
-      for i in range(len(p)):
-         c = chr(ord(p[i]) + k)
-         C = C + c
-      return render_template('response.html', nama_asli=nama, nama_terenkripsi=C)
-   return render_template('form.html')
+    if request.method == 'POST':
+        namaDepan = request.form.get('namaDepan', '')
+        namaBelakang = request.form.get('namaBelakang', '')
+        
+        if namaDepan and namaBelakang:
+            nama_lengkap = f"{namaDepan} {namaBelakang}"
+            hasil_enkripsi = caesar_encrypt(nama_lengkap, 3)
+            
+            # Cetak di terminal untuk debugging
+            print(f"==================")
+            print(f"Nama Depan: {namaDepan}")
+            print(f"Nama Belakang: {namaBelakang}")
+            print(f"Nama Lengkap: {nama_lengkap}")
+            print(f"Hasil Enkripsi: {hasil_enkripsi}")
+            print(f"==================")
+            
+            return render_template('response.html', 
+                                 nama_asli=nama_lengkap, 
+                                 hasil_enkripsi=hasil_enkripsi)
+    return render_template('form.html')
 
 if __name__ == '__main__':
-   application.run(debug=True)
+    app.run(debug=True)

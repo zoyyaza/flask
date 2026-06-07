@@ -3,286 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐻 Hasil Enkripsi - Caesar Cipher</title>
+    <title>Caesar Cipher</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Quicksand', 'Segoe UI', 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 40%, #F48FB1 70%, #D4A373 100%);
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #5D4037, #D4A373, #F8BBD0);
             min-height: 100vh;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-        }
-
-        /* Pattern cookies */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/cookies.png');
-            background-repeat: repeat;
-            opacity: 0.1;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Bunga pattern */
-        .flower-pattern {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            background-image: url('https://cdn.pixabay.com/photo/2017/01/13/04/56/rose-1976484_640.png');
-            background-repeat: repeat;
-            background-size: 60px;
-            opacity: 0.06;
-        }
-
-        .sparkle-effect {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.15) 0%, transparent 50%);
-            animation: shimmer 4s infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.9; }
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-        
-        .stars span {
-            position: absolute;
-            color: #FFD700;
-            font-size: 20px;
-            animation: floatStar 8s infinite linear;
-            opacity: 0.6;
-        }
-        
-        @keyframes floatStar {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
-        }
-
-        .bear-deco {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 75px;
-            animation: bounce 2s infinite;
-            z-index: 100;
-            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
-        }
-
-        .bear-deco-left {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            font-size: 60px;
-            animation: wave 3s infinite;
-            z-index: 100;
-            filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.15));
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(12deg); }
-            75% { transform: rotate(-12deg); }
-        }
-
-        .container {
-            max-width: 550px;
-            width: 100%;
-            z-index: 1;
-        }
-
-        .card {
-            background: rgba(255, 248, 231, 0.96);
-            border-radius: 50px;
-            padding: 45px 35px;
-            box-shadow: 0 25px 50px rgba(233, 30, 99, 0.2);
-            border: 2px solid #FFF;
-            text-align: center;
-        }
-
-        .bear-large {
-            font-size: 85px;
-            margin-bottom: 10px;
-            animation: bounce 2s infinite;
-            display: inline-block;
-        }
-
-        h1 {
-            color: #C2185B;
-            margin-bottom: 10px;
-            font-size: 1.8em;
-        }
-
-        .success-text {
-            color: #AD1457;
-            margin-bottom: 20px;
-            font-size: 1em;
-        }
-
-        .result-box {
-            background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 100%);
-            padding: 25px;
-            border-radius: 40px;
-            margin: 20px 0;
-            border: 2px solid #F48FB1;
-        }
-
-        .result-label {
-            color: #AD1457;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        /* INI YANG PENTING - HASIL ENKRIPSI */
-        .result-text {
-            background: white;
             padding: 20px;
-            border-radius: 35px;
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #4A2A1A;
-            word-break: break-all;
-            border: 2px solid #E91E63;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 2px;
         }
-
-        .shift-info {
-            margin-top: 15px;
-            color: #AD1457;
-            font-size: 0.85em;
-            background: rgba(255,255,255,0.6);
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 30px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #E91E63 0%, #F06292 70%, #D4A373 100%);
-            color: white;
-            border: none;
-            padding: 14px 35px;
-            border-radius: 45px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 16px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
-        }
-
-        .footer-note {
-            margin-top: 20px;
-            font-size: 11px;
-            color: #AD1457;
+        .card {
+            background: rgba(255,248,231,0.95);
+            border-radius: 40px;
+            padding: 40px;
             text-align: center;
-            background: rgba(255,255,255,0.5);
-            display: inline-block;
+            max-width: 500px;
             width: 100%;
-            padding: 8px;
-            border-radius: 30px;
         }
-
-        @media (max-width: 600px) {
-            .card {
-                padding: 30px 20px;
-            }
-            .result-text {
-                font-size: 1.2em;
-                padding: 15px;
-            }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #F8BBD0;
+            border-radius: 30px;
+            font-size: 16px;
+        }
+        button {
+            background: linear-gradient(135deg, #E91E63, #F06292);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .bear {
+            font-size: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="flower-pattern"></div>
-    <div class="sparkle-effect"></div>
-    <div class="stars">
-        <span style="left: 10%; animation-duration: 6s;">✨</span>
-        <span style="left: 30%; animation-duration: 8s;">💖</span>
-        <span style="left: 50%; animation-duration: 7s;">⭐</span>
-        <span style="left: 70%; animation-duration: 9s;">✨</span>
-        <span style="left: 90%; animation-duration: 5s;">💎</span>
-    </div>
-    
-    <div class="bear-deco">🐻‍❄️</div>
-    <div class="bear-deco-left">🧸</div>
-
-    <div class="container">
-        <div class="card">
-            <div class="bear-large">
-                🔐🐻
-            </div>
-            <h1>✨ Berhasil! ✨</h1>
-            <p class="success-text">Nama anda telah berhasil dienkripsi</p>
-            
-            <div class="result-box">
-                <div class="result-label">📝 NAMA TERENKRIPSI</div>
-                <!-- INI HASIL ENKRIPSI NYA -->
-                <div class="result-text">{{ hasil_enkripsi }}</div>
-                
-                <div class="shift-info">⚙️ Shift yang digunakan: 3</div>
-            </div>
-
-            <div class="footer-note">
-                💻 Pemrograman Kriptografi | Caesar Cipher 💻
-            </div>
-
-            <a href="/" class="btn-primary">🏠 KEMBALI</a>
-        </div>
+    <div class="card">
+        <div class="bear">🐻🔐</div>
+        <h1>CAESAR CIPHER</h1>
+        <form method="POST">
+            <input type="text" name="namaDepan" placeholder="Nama Depan" required>
+            <input type="text" name="namaBelakang" placeholder="Nama Belakang" required>
+            <button type="submit">ENKRIPSI SEKARANG</button>
+        </form>
     </div>
 </body>
 </html>

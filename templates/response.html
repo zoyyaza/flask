@@ -1,15 +1,53 @@
 <html>
 <head>
-   <title>Demo Text</title>
+<title>Hasil Enkripsi</title>
+
+<style>
+
+body{
+    background:#dbeafe;
+    font-family:Arial;
+}
+
+.kotak{
+    width:500px;
+    margin:auto;
+    margin-top:80px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    border:1px solid #2563eb;
+}
+
+h2{
+    color:#1e40af;
+}
+
+</style>
+
 </head>
+
 <body>
-   <h2>Hasil Enkripsi</h2>
-   
-   <p>Nama Asli: <strong>{{ nama_asli }}</strong></p>
-   <p>NamaTerenkripsi (Caesar Cipher): <strong style="color: red;">{{ nama_terenkripsi }}</strong></p>
-   
-   <br>
-   <a href="/">Kembali ke Form</a>
-   
+
+<div class="kotak">
+
+<h2>Hasil Enkripsi Caesar Cipher</h2>
+
+<p>
+<b>Nama Asli :</b>
+{{ nama_asli }}
+</p>
+
+<p>
+<b>Nama Terenkripsi :</b>
+{{ nama_terenkripsi }}
+</p>
+
+<br>
+
+<a href="/">Kembali</a>
+
+</div>
+
 </body>
 </html>

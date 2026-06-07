@@ -1,26 +1,71 @@
-<html>
-<head> <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-   <title>Demo Text</title>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>🐻 Caesar Cipher - Coklat Cream ✨</title>
 </head>
 <body>
-   <h2>Demo Text</h2>
-   
-   <form action="/" method="post">
-      Nama depan:<br />
-      <input type="text" name="namaDepan" size="25" /><br />
-      Nama belakang:<br />
-      <input type="text" name="namaBelakang" size="25" />
-      <p><input type="submit"  value="Kirim" /></p>
-   </form>
-   
-</body> <body>
+    <!-- Boneka Beruang Lucu -->
+    <div class="bear-deco" title="🐻 Halo! Aku Bear-Bear 💕">🐻‍❄️</div>
+    <div class="bear-deco-left" title="🧸 Aku temanmu!">🧸</div>
 
-<div class="pocket">
+    <div class="container">
+        <div class="header">
+            <span class="bear-header">🧸</span>
+            <h1>CAESAR CIPHER</h1>
+            <span class="bear-header">🐻</span>
+        </div>
+        <div class="subtitle">
+            ✨ tempatnya bikin pesan rahasia yang manis ✨
+        </div>
 
+        <div class="two-columns">
+            <!-- Enkripsi Card -->
+            <div class="card">
+                <h2>
+                    <span>🔐</span> Enkripsi Yuk!
+                </h2>
+                <form method="POST" action="/">
+                    <div class="form-group">
+                        <label>🐻 Nama Depan</label>
+                        <input type="text" name="namaDepan" placeholder="contoh: Raisa" required>
+                    </div>
+                    <div class="form-group">
+                        <label>🍯 Nama Belakang</label>
+                        <input type="text" name="namaBelakang" placeholder="contoh: Andriana" required>
+                    </div>
+                    <div class="form-group">
+                        <label>🔢 Shift (1-25)</label>
+                        <input type="number" name="shift" min="1" max="25" value="3" class="shift-input">
+                    </div>
+                    <button type="submit">🔒 Enkripsi Sekarang</button>
+                </form>
+            </div>
 
-    </form>
-
-</div>
-
+            <!-- Dekripsi Card -->
+            <div class="card">
+                <h2>
+                    <span>🔓</span> Dekripsi Yuk!
+                </h2>
+                <form method="POST" action="/">
+                    <div class="form-group">
+                        <label>🔐 Teks Rahasia</label>
+                        <input type="text" name="encrypted_text" placeholder="contoh: Udlvd Dqguldqd" required>
+                    </div>
+                    <div class="form-group">
+                        <label>🔢 Shift (1-25)</label>
+                        <input type="number" name="decrypt_shift" min="1" max="25" value="3" class="shift-input">
+                    </div>
+                    <button type="submit">🔓 Dekripsi Sekarang</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="heart-deco">
+            💖 made with love • bear & honey • caesar cipher 💖
+        </div>
+    </div>
 </body>
 </html>
